@@ -129,7 +129,7 @@ mongosh
 > exit
 ```
 
-Create a .gitignore file `touch .gitignore`!
+Next, lets create a .gitignore file `touch .gitignore`! This will prevent certain files from being pushed up to github. This is great when storing things like passwords/API keys, and also when working with hundreds of small files like our node modules
 
 ```sh
 /node_modules
@@ -167,7 +167,7 @@ Let's setup the root route:
 
 ```js
 
-app.get('/', (req, res) => res.send('This is root!'))
+app.get('/', (req, res) => res.send('This is our landing page!'))
 
 ```
 
