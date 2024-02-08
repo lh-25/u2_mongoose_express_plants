@@ -203,7 +203,7 @@ Test the root endpoint in your browser: http://localhost:3001/
     Listening on port: 3001
     Successfully connected to MongoDB.
     ```
-- And something like this in your browser: `This is root!`
+- And something like this in your browser: `This is our landing page!`
 
 ___
 ### Routes and Controllers
