@@ -253,7 +253,7 @@ ___
 
 Nice, now let's add the ability to find a specific plant:
 
-u2_hw_mongoose_plants/controllers/plantController.js
+/controllers/plantController.js
 ```js
 const getPlantById = async (req, res) => {
     try {
@@ -271,7 +271,7 @@ const getPlantById = async (req, res) => {
 
 Add it to the export:
 
-u2_hw_mongoose_plants/controllers/plantController.js
+/controllers/plantController.js
 ```js
 module.exports = {
     getAllPlants,
@@ -281,7 +281,7 @@ module.exports = {
 
 Add the route:
 
-u2_hw_mongoose_plants/server.js
+/server.js
 ```js
 app.get('/plants/:id', controllers.getPlantById)
 ```
@@ -405,8 +405,9 @@ app.use(bodyParser.json())
   const PORT = process.env.PORT || 3001;
 
   const app = express();
+  // app.use() middleware here 
   app.use(bodyParser.json());
-  // app.use() middleware here ^ ///////////////////
+
 
 
   db.on('error', console.error.bind(console, 'MongoDB connection error:'))
@@ -427,7 +428,7 @@ Cool. We have the logic to create a new plant. Now let's create a route on our s
 ```js
 const controllers = require('../controllers')
 
-app.get('/', (req, res) => res.send('This is root!'))
+app.get('/', (req, res) => res.send('This is our landing page!'))
 
 app.post('/plants', plantController.createPlant)
 
@@ -509,7 +510,7 @@ module.exports = {
 
 Let's add our routes:
 
-u2_hw_mongoose_plants/server.js
+/server.js
 ```js
 app.put('/plants/:id', controllers.updatePlant)
 app.delete('/plants/:id', controllers.deletePlant)
