@@ -260,7 +260,7 @@ const getPlantById = async (req, res) => {
         const { id } = req.params;
         const plant = await Plant.findById(id)
         if (plant) {
-            res.json(plant);
+            return res.json(plant);
         }
         return res.status(404).send('Plant with the specified ID does not exists');
     } catch (error) {
