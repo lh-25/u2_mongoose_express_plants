@@ -21,7 +21,7 @@ Let's start!
 npm init -y
 npm install mongoose
 mkdir db models seed
-touch db/.js models/plant.js seed/plants.js
+touch db/index.js models/plant.js seed/plants.js
 ```
 
 Now let's open up Visual Studio Code and write some code:
