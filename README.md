@@ -290,6 +290,26 @@ app.get('/plants/:id', controllers.getPlantById)
 Test it! Your URL shold look like this, but with the `_id` of _your Test Plant_ in your URL `:params` :
 http://localhost:3001/plants/5e38921e9c3bd077f50dc9a2
 
+Sometimes Mongoose doesn't read an ID correctly and will give a 500 error instead of a 404. This is a bit of overkill but will help guard for a 404 error
+
+```js
+const getPlantById = async (req, res) => {
+    try {
+        const { id } = req.params
+        const plant = await Plant.findById(id)
+        if (plant) {
+            return res.json(plant)
+        }
+        return res.status(404).send(`that plant doesn't exist`)
+    } catch (error) {
+        if (error.name === 'CastError' && error.kind === 'ObjectId') {
+            return res.status(404).send(`That plant doesn't exist`)
+        }
+        return res.status(500).send(error.message);
+    }
+}
+```
+
 
 ## Bonus 1
 This is a good point to integrate better logging. Right now, if we check our terminal when we hit the http://localhost:3001/plants/<id> endpoint we see the raw Mongo command that was executed. For debugging purposes and overall better logging we're going to use an express middleware called `morgan`, we'll also install Body Parser to parse our HTTP requests:
