@@ -291,7 +291,7 @@ http://localhost:3001/plants/5e38921e9c3bd077f50dc9a2
 
 
 ## Bonus 1
-This is a good point to integrate better logging. Right now, if we check our terminal when we hit the http://localhost:3001/plants/5e38921e9c3bd077f50dc9a2 endpoint we see the raw SQL that was executed. For debugging purposes and overall better logging we're going to use an express middleware called `morgan`:
+This is a good point to integrate better logging. Right now, if we check our terminal when we hit the http://localhost:3001/plants/<id> endpoint we see the raw Mongo command that was executed. For debugging purposes and overall better logging we're going to use an express middleware called `morgan`:
 
 ```sh
 npm install morgan
