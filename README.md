@@ -292,16 +292,19 @@ http://localhost:3001/plants/5e38921e9c3bd077f50dc9a2
 
 
 ## Bonus 1
-This is a good point to integrate better logging. Right now, if we check our terminal when we hit the http://localhost:3001/plants/<id> endpoint we see the raw Mongo command that was executed. For debugging purposes and overall better logging we're going to use an express middleware called `morgan`:
+This is a good point to integrate better logging. Right now, if we check our terminal when we hit the http://localhost:3001/plants/<id> endpoint we see the raw Mongo command that was executed. For debugging purposes and overall better logging we're going to use an express middleware called `morgan`, we'll also install Body Parser to parse our HTTP requests:
 
 ```sh
-npm install morgan
+npm install morgan body-parser
 ```
 
 Add the following to your server.js file:
 ```js
+const bodyParser = require('body-parser');
 const logger = require('morgan');
+
 app.use(logger('dev'))
+app.use(bodyParser.json())
 ```
 
 <details><summary>server.js should look like this afterward:</summary>
@@ -513,8 +516,8 @@ Let's add our routes:
 
 /server.js
 ```js
-app.put('/plants/:id', controllers.updatePlant)
-app.delete('/plants/:id', controllers.deletePlant)
+app.put('/plants/:id', plantController.updatePlant)
+app.delete('/plants/:id', plantController.deletePlant)
 ```
 
 Test update (PUT) in ThunderClient. Remember that you'll have to use the `_id` of _your_ Test Plant. Your request body in Insomnia will have to look something like this:
