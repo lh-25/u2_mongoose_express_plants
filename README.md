@@ -525,7 +525,7 @@ Make sure your exports are updated:
 module.exports = {
     createPlant,
     getAllPlants,
-    getUserById,
+    getPlantById,
     updatePlant,
     deletePlant
 }
