@@ -177,6 +177,7 @@ Inside of server.js:
 ```js
 const express = require('express');
 const db = require('./db');
+const plantController = require('./controllers/plantController')
 
 // require() imports and middleware here ^ ///////
 
@@ -235,7 +236,7 @@ module.exports = {
 
 Add the following route to your server.js file:
 ```js
-app.get('/plants', controllers.getAllPlants)
+app.get('/plants', plantController.getAllPlants)
 ```
 
 Open http://localhost:3001/plants in your browser or do a GET request in ThunderClient.
