@@ -34,7 +34,7 @@ code .
 
 
 
-### Pt 2: Mongoose Database Connection
+### Mongoose Database Connection
 Inside our `db` folder we are going to use Mongoose to establish a connection to our MongoDB `plantsDatabase`:
 
 mongodb-mongoose-express-using-router/db/index.js
@@ -58,7 +58,7 @@ module.exports = db
 ```
 
 
-### Pt 3: Mongoose Schemas and Models
+### Pt 2: Mongoose Schemas and Models, seeding the DB
 Although, MongoDB is schema-less, Mongoose allows us to write a schema for our plant model which makes it nice to know what is a plant in our database and what a plant "looks" like in our database:
 
 models/plant.js
@@ -80,7 +80,7 @@ module.exports = mongoose.model('plants', Plant)
 
 Cool. We have a "blueprint" for what a plant is. Let's now use it and create plants.
 
-### Pt. 4 : Seeding The Database
+###  Seeding The Database
 
 ![seeding](https://animeshelter.com/wp-content/uploads/2018/02/qosplantmagic.gif)
 
@@ -140,7 +140,7 @@ Next, lets create a .gitignore file `touch .gitignore`! This will prevent certai
 .DS_Store
 ```
 
-### Pt 5: Express Server
+### Pt 3:  Attaching the Express Server
 Cool, enough Mongoose. Now, Express. Let's install Express and Nodemon for development:
 
 ```sh
@@ -211,7 +211,7 @@ Test the root endpoint in your browser: http://localhost:3001/
 - And something like this in your browser: `This is our landing page!`
 
 ___
-### Pt. 6 Routes and Controllers
+### Pt. 4 Routes and Controllers
 Good, now let's work on the controllers. Controllers are where we will set up all of our logic e.g. what does the API do when we want to create a new plant? Update a plant? etc.
 
 #### getAllPlants
@@ -315,7 +315,7 @@ const getPlantById = async (req, res) => {
 ```
 
 
-## Pt. 7 : Bonus 1
+## Pt. 5 : Bonus 1
 This is a good point to integrate better logging. Right now, if we check our terminal when we hit the http://localhost:3001/plants/<id> endpoint we see the raw Mongo command that was executed. For debugging purposes and overall better logging we're going to use an express middleware called `morgan`, we'll also install Body Parser to parse our HTTP requests:
 
 ```sh
