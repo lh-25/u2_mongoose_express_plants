@@ -13,7 +13,9 @@ In this lesson we'll be building our very own custom API about plants! We'll be 
 - It's recommended that you shut down your server with `ctrl + c` every time you'll need to add a package so you won't run into multiple server instance port errors.
 
 ## Instructions
-### Setup
+### Pt 1:  Setup
+
+
 
 Let's start!
 
@@ -30,7 +32,9 @@ Now let's open up Visual Studio Code and write some code:
 code .
 ```
 
-### Mongoose Database Connection
+
+
+### Pt 2: Mongoose Database Connection
 Inside our `db` folder we are going to use Mongoose to establish a connection to our MongoDB `plantsDatabase`:
 
 mongodb-mongoose-express-using-router/db/index.js
@@ -54,7 +58,7 @@ module.exports = db
 ```
 
 
-### Mongoose Schemas and Models
+### Pt 3: Mongoose Schemas and Models
 Although, MongoDB is schema-less, Mongoose allows us to write a schema for our plant model which makes it nice to know what is a plant in our database and what a plant "looks" like in our database:
 
 models/plant.js
@@ -76,7 +80,7 @@ module.exports = mongoose.model('plants', Plant)
 
 Cool. We have a "blueprint" for what a plant is. Let's now use it and create plants.
 
-### Seeding The Database
+### Pt. 4 : Seeding The Database
 
 ![seeding](https://animeshelter.com/wp-content/uploads/2018/02/qosplantmagic.gif)
 
@@ -136,7 +140,7 @@ Next, lets create a .gitignore file `touch .gitignore`! This will prevent certai
 .DS_Store
 ```
 
-### Express Server
+### Pt 5: Express Server
 Cool, enough Mongoose. Now, Express. Let's install Express and Nodemon for development:
 
 ```sh
@@ -207,7 +211,7 @@ Test the root endpoint in your browser: http://localhost:3001/
 - And something like this in your browser: `This is our landing page!`
 
 ___
-### Routes and Controllers
+### Pt. 6 Routes and Controllers
 Good, now let's work on the controllers. Controllers are where we will set up all of our logic e.g. what does the API do when we want to create a new plant? Update a plant? etc.
 
 #### getAllPlants
@@ -311,7 +315,7 @@ const getPlantById = async (req, res) => {
 ```
 
 
-## Bonus 1
+## Pt. 7 : Bonus 1
 This is a good point to integrate better logging. Right now, if we check our terminal when we hit the http://localhost:3001/plants/<id> endpoint we see the raw Mongo command that was executed. For debugging purposes and overall better logging we're going to use an express middleware called `morgan`, we'll also install Body Parser to parse our HTTP requests:
 
 ```sh
@@ -487,7 +491,7 @@ Use ThunderClient to send a POST method to test the create route (http://localho
 
 ___
 ___
-#### updatePlant and deletePlant
+#### Pt. 8 : updatePlant and deletePlant
 
 So we can now create plants, show all plants, and show a specific plant. How about updating a plant and deleting a plant?
 
