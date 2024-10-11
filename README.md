@@ -37,6 +37,8 @@ code .
 ### Mongoose Database Connection
 Inside our `db` folder we are going to use Mongoose to establish a connection to our MongoDB `plantsDatabase`:
 
+If using the Atlas, use your connection string in the .connect() block!
+
 mongodb-mongoose-express-using-router/db/index.js
 ```js
 const mongoose = require('mongoose')
